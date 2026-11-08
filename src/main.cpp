@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <minipost/http/http_method.hpp>
 void showWelcome()
 {
     std::cout << "==================================\n";
@@ -31,31 +31,36 @@ void showMenu()
 int main()
 {
     std::string option;
-    showWelcome();
-    showMenu();
-    std::cout << "\nSeleccione una opcion: ";
     std::getline(std::cin, option);
-    std::cout << std::endl;
 
-    while (option != "0")
-    {
-        
-        if (option == "1")
-        {
-            // std::system("cls");
-            infoProyect();
-        }
-        if (option == "2")
-        {
-            // std::system("cls");
-            showStatus();
-        }
-        std::cout << std::endl;
-        showMenu();
-        std::cout << "\nSeleccione una opcion: ";
-        std::getline(std::cin, option);
-        std::cout << std::endl;
-    }
+    minipost::HttpMethod method = minipost::stringToHttpMethod(option);
 
     return 0;
+    // showWelcome();
+    // showMenu();
+    // std::cout << "\nSeleccione una opcion: ";
+    // std::getline(std::cin, option);
+    // std::cout << std::endl;
+
+    // while (option != "0")
+    // {
+
+    //     if (option == "1")
+    //     {
+    //         // std::system("cls");
+    //         infoProyect();
+    //     }
+    //     if (option == "2")
+    //     {
+    //         // std::system("cls");
+    //         showStatus();
+    //     }
+    //     std::cout << std::endl;
+    //     showMenu();
+    //     std::cout << "\nSeleccione una opcion: ";
+    //     std::getline(std::cin, option);
+    //     std::cout << std::endl;
+    // }
+
+    // return 0;
 }

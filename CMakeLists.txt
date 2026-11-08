@@ -8,6 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(MiniPost
     src/main.cpp
+    src/http/http_method.cpp
 )
 
 
