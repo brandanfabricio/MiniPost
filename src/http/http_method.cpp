@@ -1,26 +1,61 @@
-#include <iostream>
-#include <optional>
 #include <minipost/http/http_method.hpp>
-
-std::optional<minipost::HttpMethod> stringToHttpMethod(std::string &value)
+namespace minipost
 {
-    switch (value)
+
+    std::optional<minipost::HttpMethod> stringToHttpMethod(std::string &value)
     {
-    case "GET":
-        return minipost::HttpMethod::GET;
-    case "POST":
-        return minipost::HttpMethod::POST;
-    case "PUT":
-        return minipost::HttpMethod::PUT;
-    case "PATCH":
-        return minipost::HttpMethod::PATCH;
-    case "DELETE":
-        return minipost::HttpMethod::DELETE;
-    case "HEAD":
-        return minipost::HttpMethod::HEAD;
-    case "OPTIONS":
-        return minipost::HttpMethod::OPTIONS;
-    default:
+        if (value == "GET")
+        {
+            return minipost::HttpMethod::GET;
+        }
+        if (value == "POST")
+        {
+            return minipost::HttpMethod::POST;
+        }
+        if (value == "PUT")
+        {
+
+            return minipost::HttpMethod::PUT;
+        }
+        if (value == "PATCH")
+        {
+            return minipost::HttpMethod::PATCH;
+        }
+        if (value == "DELETE")
+        {
+            return minipost::HttpMethod::DELETE;
+        }
+        if (value == "HEAD")
+        {
+            return minipost::HttpMethod::HEAD;
+        }
+        if (value == "OPTIONS")
+        {
+            return minipost::HttpMethod::OPTIONS;
+        }
         return std::nullopt;
-    };
+    }
+
+    std::optional<std::string> httpMethodToString(HttpMethod method)
+    {
+        switch (method)
+        {
+        case HttpMethod::GET:
+            return "GET";
+        case HttpMethod::POST:
+            return "POST";
+        case HttpMethod::PUT:
+            return "PUT";
+        case HttpMethod::PATCH:
+            return "PATCH";
+        case HttpMethod::DELETE:
+            return "DELETE";
+        case HttpMethod::HEAD:
+            return "HEAD";
+        case HttpMethod::OPTIONS:
+            return "OPTIONS";
+        default:
+            return std::nullopt;
+        }
+    }
 }

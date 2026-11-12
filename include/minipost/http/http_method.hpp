@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <optional>
 namespace minipost
 {
@@ -14,4 +15,5 @@ namespace minipost
     };
 
     std::optional<HttpMethod> stringToHttpMethod(std::string &value);
+    std::optional<std::string> httpMethodToString(HttpMethod method);
 }
